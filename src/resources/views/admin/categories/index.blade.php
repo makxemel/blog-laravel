@@ -26,10 +26,32 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-1">
-                    <a href="{{ route('admin.category.create') }}" type="button" class="btn btn-block btn-primary">Add</a>
+                    <a href="{{ route('admin.category.create') }}" type="button"
+                        class="btn btn-block btn-primary">Add</a>
                 </div>
                 <div class="col-12">
-                    Categories
+                    <div class="card mt-3">
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0">
+                            <table class="table table-hover text-nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($categories as $category)
+                                    <tr>
+                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->title }}</td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
                 </div>
                 <!-- ./col -->
             </div>
