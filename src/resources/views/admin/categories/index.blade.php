@@ -47,6 +47,7 @@
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->title }}</td>
                                         <td><a href="{{ route('admin.category.show', $category->id) }}"><i class="fa fa-regular fa-eye"></i></a></td>
+                                        <td><a href="{{ route('admin.category.edit', $category->id) }}"><i class="fa fa-solid fa-pen"></i></a></td>
                                     </tr>
                                     @endforeach
                                 </tbody>
