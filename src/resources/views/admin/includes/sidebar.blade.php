@@ -21,10 +21,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
+                    <a href="{{ route('admin.tag.index') }}" class="nav-link">
+                    <i class="nav-icon fa fa-solid fa-tag" style="color: #c2c7d0;"></i>
                         <p>
-                            Gallery
+                            Tag
                         </p>
                     </a>
                 </li>
