@@ -12,6 +12,14 @@
                     <a href="{{ route('admin.index')}}">to Home</a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.post.index') }}" class="nav-link">
+                    <i class="nav-icon fa fa-regular fa-clipboard" style="color: #c2c7d0;"></i>
+                        <p>
+                            Post
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.category.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
@@ -25,14 +33,6 @@
                     <i class="nav-icon fa fa-solid fa-tag" style="color: #c2c7d0;"></i>
                         <p>
                             Tag
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="pages/kanban.html" class="nav-link">
-                        <i class="nav-icon fas fa-columns"></i>
-                        <p>
-                            Kanban Board
                         </p>
                     </a>
                 </li>
