@@ -28,7 +28,7 @@
                 <div class="col-12">
                     <form action="{{ route('admin.post.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="form-group w-25">
+                        <div class="form-group w-50">
                             <label>Title</label>
                             <input name="title" type="text" class="form-control" placeholder="Title"
                                 value="{{ old('title') }}">
@@ -53,6 +53,9 @@
                                     <span class="input-group-text">Upload</span>
                                 </div>
                             </div>
+                            @error('preview_image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group w-50">
                             <label for="exampleInputFile">Add Main Image</label>
@@ -65,6 +68,19 @@
                                     <span class="input-group-text">Upload</span>
                                 </div>
                             </div>
+                            @error('main_image')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group w-50">
+                            <label>Select Category</label>
+                            <select name="category_id" class="form-control">
+                                @foreach($categories as $category)
+                                <option value="{{ $category->id }}"
+                                {{ $category->id == old('category_id') ? ' selected' : '' }}
+                                >{{ $category->title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Add">
