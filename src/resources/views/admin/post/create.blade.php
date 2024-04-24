@@ -77,11 +77,21 @@
                             <select name="category_id" class="form-control">
                                 @foreach($categories as $category)
                                 <option value="{{ $category->id }}"
-                                {{ $category->id == old('category_id') ? ' selected' : '' }}
-                                >{{ $category->title }}</option>
+                                    {{ $category->id == old('category_id') ? ' selected' : '' }}>{{ $category->title }}
+                                </option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group">
+                  <label>Tags</label>
+                  <select name="tag_ids[]" class="select2" multiple="multiple" data-placeholder="Choose tags" style="width: 100%;">
+                    @foreach($tags as $tag)
+                    <option value="{{ $tag->id }}"
+                    {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? ' selected' : '' }}
+                    >{{ $tag->title }}</option>
+                    @endforeach
+                  </select>
+                </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Add">
                         </div>
