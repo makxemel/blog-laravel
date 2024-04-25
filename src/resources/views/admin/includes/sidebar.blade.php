@@ -9,30 +9,38 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-header">
-                    <a href="{{ route('admin.index')}}">to Home</a>
+                    <a href="{{ route('admin.index')}}">to /admin</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.post.index') }}" class="nav-link">
-                    <i class="nav-icon fa fa-regular fa-clipboard" style="color: #c2c7d0;"></i>
+                        <i class="nav-icon fa fa-regular fa-clipboard" style="color: #c2c7d0;"></i>
                         <p>
-                            Post
+                            Posts
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.category.index') }}" class="nav-link">
-                    <i class="nav-icon fas fa-chart-pie"></i>
+                        <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Category
+                            Categories
                             <span class="badge badge-info right"></span>
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.tag.index') }}" class="nav-link">
-                    <i class="nav-icon fa fa-solid fa-tag" style="color: #c2c7d0;"></i>
+                        <i class="nav-icon fa fa-solid fa-tag" style="color: #c2c7d0;"></i>
                         <p>
-                            Tag
+                            Tags
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.user.index') }}" class="nav-link">
+                    <i class="nav-icon fa fa-solid fa-user"></i>
+                        <p>
+                            Users
                         </p>
                     </a>
                 </li>
