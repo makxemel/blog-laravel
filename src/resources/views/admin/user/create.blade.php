@@ -30,8 +30,22 @@
                         @csrf
                         <div class="form-group">
                             <label>Name</label>
-                            <input name="name" type="text" class="form-control" placeholder="Title">
+                            <input name="name" type="text" class="form-control" placeholder="Name">
                             @error('name')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input name="email" type="email" class="form-control" placeholder="Email">
+                            @error('email')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input name="password" type="password" class="form-control" placeholder="Password">
+                            @error('password')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>

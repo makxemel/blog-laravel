@@ -22,7 +22,20 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string',
+            'name' => 'required|string',
+            'email' => 'required|string|email|unique:users,email,'.$this->user->id
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'This field is required!',
+            'name.string' => 'This field must be a string!',
+            'email.required' => 'This field is required!',
+            'email.string' => 'This field is string!',
+            'email.email' => 'Your email must follow the format "somemail@mail.com"!',
+            'email.unique' => 'User with the same email already exists!'
         ];
     }
 }
