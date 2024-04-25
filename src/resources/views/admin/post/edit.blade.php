@@ -47,7 +47,8 @@
                         <div class="form-group w-50">
                             <label for="exampleInputFile">Add Preview Image</label>
                             <div class="w-50 mb-2">
-                                <img src="{{ asset('storage/'.$post->preview_image) }}" alt="preview_image" class="w-50">
+                                <img src="{{ asset('storage/'.$post->preview_image) }}" alt="preview_image"
+                                    class="w-50">
                             </div>
                             <div class="input-group">
                                 <div class="custom-file">
@@ -89,6 +90,9 @@
                                 </option>
                                 @endforeach
                             </select>
+                            @error('category_id')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label>Tags</label>
@@ -100,6 +104,9 @@
                                     {{ $tag->title }}</option>
                                 @endforeach
                             </select>
+                            @error('tag_ids')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Add">
