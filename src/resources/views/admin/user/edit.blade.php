@@ -31,18 +31,33 @@
                         @method('patch')
                         <div class="form-group">
                             <label>Name</label>
-                            <input name="name" type="text" class="form-control" placeholder="Name" value="{{ $user->name }}">
+                            <input name="name" type="text" class="form-control" placeholder="Name"
+                                value="{{ $user->name }}">
                             @error('name')
-                                <div class="text-danger">{{ $message }}</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input name="email" type="email" class="form-control" placeholder="Email" value="{{ $user->email }}">
+                            <input name="email" type="email" class="form-control" placeholder="Email"
+                                value="{{ $user->email }}">
                             @error('email')
-                                <div class="text-danger">{{ $message }}</div>
+                            <div class="text-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <div class="form-group w-50">
+                            <label>Select User Role</label>
+                            <select name="role" class="form-control">
+                                @foreach($roles as $id => $role)
+                                <option value="{{ $id }}" {{ $id == $user->role ? ' selected' : '' }}>{{ $role }}
+                                </option>
+                                @endforeach
+                            </select>
+                            @error('role')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <input type="hidden" name="user_id" value="{{ $user->id }}">
                         <input type="submit" class="btn btn-primary" value="Edit">
                     </form>
                 </div>
