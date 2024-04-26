@@ -10,7 +10,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
 Route::group([
     'namespace' => 'App\Http\Controllers\Admin',
     'prefix' => 'admin',
-    'middleware' => ['auth', 'admin'],
+    'middleware' => ['admin', 'auth', 'verified'],
 ], function () {
     Route::group(['namespace' => 'Main'], function () {
         Route::get('/', 'IndexController')->name('admin.index');
@@ -56,4 +56,4 @@ Route::group([
     });
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
