@@ -8,11 +8,10 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
 
-class IndexController
+class EditController
 {
-    public function __invoke()
+    public function __invoke(Comment $comment)
     {
-        $comments = auth()->user()->comments;
-        return view('personal.comment.index', compact('comments'));
+        return view('personal.comment.edit', compact('comment'));
     }
 }

@@ -26,8 +26,7 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-1">
-                    <a href="{{ route('admin.post.create') }}" type="button"
-                        class="btn btn-block btn-primary">Add</a>
+                    <a href="{{ route('admin.post.create') }}" type="button" class="btn btn-block btn-primary">Add</a>
                 </div>
                 <div class="col-12">
                     <div class="card mt-3">
@@ -46,13 +45,13 @@
                                     <tr>
                                         <td>{{ $post->id }}</td>
                                         <td>{{ $post->title }}</td>
-                                        <td><a href="{{ route('admin.post.show', $post->id) }}"
-                                                class="text-success"><i class="fa fa-regular fa-eye"></i></a></td>
+                                        <td><a href="{{ route('admin.post.show', $post->id) }}" class="text-success"><i
+                                                    class="fa fa-regular fa-eye"></i></a></td>
                                         <td><a href="{{ route('admin.post.edit', $post->id) }}"><i
-                                                    class="fa fa-solid fa-pen"></i></a></td>
+                                                    class="fa fa-solid fa-pen"></i></a>
+                                        </td>
                                         <td>
-                                            <form action="{{ route('admin.post.delete', $post->id) }}"
-                                                method="post">
+                                            <form action="{{ route('admin.post.delete', $post->id) }}" method="post">
                                                 @csrf
                                                 @method('delete')
                                                 <button type="submit" class="border-0 bg-transparent">
