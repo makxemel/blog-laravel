@@ -9,7 +9,7 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-header">
-                    <a href="{{ route('admin.index')}}">to /admin</a>
+                    <a href="{{ route('admin.main.index')}}">to /admin</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('admin.post.index') }}" class="nav-link">
