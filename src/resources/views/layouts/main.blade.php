@@ -19,8 +19,7 @@
     <header class="edica-header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html"><img src="{{ asset('assets/images/logo.svg') }}"
-                        alt="Edica"></a>
+                <a class="navbar-brand" href="{{ route('main.index') }}">Blog</a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                     data-target="#edicaMainNav" aria-controls="collapsibleNavId" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -28,9 +27,19 @@
                 </button>
                 <div class="collapse navbar-collapse" id="edicaMainNav">
                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
+                        @auth()
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">Blog</a>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <input class="btn" type="submit" value="Logout">
+                            </form>
                         </li>
+                        @endauth
+                        @guest()
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('personal.main.index') }}">Login</a>
+                        </li>
+                        @endguest
                 </div>
             </nav>
         </div>
