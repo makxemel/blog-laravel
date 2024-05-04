@@ -18,6 +18,29 @@
         </section>
         <div class="row">
             <div class="col-lg-9 mx-auto">
+                @auth()
+                <form action="{{ route('post.like.store', $post->id) }}" method="post">
+                    @csrf
+                    <span>{{ $post->liked_users_count }}</span>
+                    <button type="submit" class="border-0 bg-transparent">
+                        @if(auth()->user()->likedPosts->contains($post->id))
+                        <i class="fas fa-heart"></i>
+                        @else
+                        <i class="far fa-heart"></i>
+                        @endif
+                    </button>
+                </form>
+                @endauth
+                @guest()
+                <div>
+                    <span>{{ $post->liked_users_count }}</span>
+                    <i class="far fa-heart"></i>
+                </div>
+                @endguest
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9 mx-auto">
                 <section class="related-posts">
                     <h2 class="section-title mb-4" data-aos="fade-up">Related Posts</h2>
                     <div class="row">
@@ -33,7 +56,7 @@
                         @endforeach
                     </div>
                 </section>
-                
+
                 <section class="comment-list mb-5">
                     <div class="card-footer card-comments">
                         @foreach ($post->comments as $comment)
@@ -43,7 +66,8 @@
                                     <div>
                                         <b>{{ $comment->user->name }}</b>
                                     </div>
-                                    <span class="text-muted float-right">{{ $comment->dateAsCarbon->diffForHumans() }}</span>
+                                    <span
+                                        class="text-muted float-right">{{ $comment->dateAsCarbon->diffForHumans() }}</span>
                                 </span>
                                 {{ $comment->content }}
                             </div>
